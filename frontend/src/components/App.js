@@ -11,6 +11,8 @@ import TodoEdit from './todos/TodoEdit';
 import { Provider } from 'react-redux';
 import store from '../store';
 
+import Button from '@material-ui/core/Button';
+
 class App extends Component {
   render() {
     return (
@@ -23,6 +25,9 @@ class App extends Component {
             <Route exact path='/edit/:id' component={TodoEdit} />
           </Switch>
         </Router>
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
       </Provider>
     );
   }
