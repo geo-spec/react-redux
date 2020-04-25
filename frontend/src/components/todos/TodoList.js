@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 class TodoList extends Component {
   componentDidMount() {
-    console.log('dsa')
+    // console.log('dsa')
     this.props.getTodos();
-    console.log(this.props.getTodos())
+    // console.log(this.props.getTodos())
   }
 
   render() {

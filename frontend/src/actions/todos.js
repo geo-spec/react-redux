@@ -6,7 +6,7 @@ import { GET_TODOS, GET_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO } from './types';
 // GET TODOS
 export const getTodos = () => async dispatch => {
   const res = await axios.get('/api/todos/');
-  console.log(res)
+  // @todo
   dispatch({
     type: GET_TODOS,
     payload: res.data

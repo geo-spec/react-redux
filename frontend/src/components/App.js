@@ -14,6 +14,17 @@ import store from '../store';
 import Button from '@material-ui/core/Button';
 
 class App extends Component {
+  // componentDidMount - todo native fetch data. 
+  // статья обо всех способах получения данных - https://www.robinwieruch.de/react-fetching-data
+  componentDidMount() {
+    fetch('/api/todos/')
+    .then(response => response.json()
+    .then(data => {
+
+    })
+    );
+  }
+
   render() {
     return (
       <Provider store={store}>
