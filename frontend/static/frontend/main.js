@@ -90,11 +90,11 @@
 /*!***************************************!*\
   !*** ./frontend/src/actions/todos.js ***!
   \***************************************/
-/*! exports provided: getTodos, getTodo, addTodo, deleteTodo, editTodo */
+/*! exports provided: getTodos, getTodo, addTodo, deleteTodo, editTodo, getSampleData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTodos\", function() { return getTodos; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTodo\", function() { return getTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodo\", function() { return addTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"deleteTodo\", function() { return deleteTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"editTodo\", function() { return editTodo; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ \"./node_modules/redux-form/es/index.js\");\n/* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../history */ \"./frontend/src/history.js\");\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types */ \"./frontend/src/actions/types.js\");\n\n\n\n // GET TODOS\n\nconst getTodos = () => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/todos/'); // @todo\n\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"GET_TODOS\"],\n    payload: res.data\n  });\n}; // GET TODO\n\nconst getTodo = id => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`/api/todos/${id}/`);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"GET_TODO\"],\n    payload: res.data\n  });\n}; // ADD TODO\n\nconst addTodo = formValues => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/todos/', { ...formValues\n  });\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"ADD_TODO\"],\n    payload: res.data\n  });\n  dispatch(Object(redux_form__WEBPACK_IMPORTED_MODULE_1__[\"reset\"])('todoForm')); // フォーム送信後、値をクリアする\n}; // DELETE TODO\n\nconst deleteTodo = id => async dispatch => {\n  await axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`/api/todos/${id}/`);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"DELETE_TODO\"],\n    payload: id\n  });\n  _history__WEBPACK_IMPORTED_MODULE_2__[\"default\"].push('/');\n}; // EDIT TODO\n\nconst editTodo = (id, formValues) => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(`/api/todos/${id}/`, formValues);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"EDIT_TODO\"],\n    payload: res.data\n  });\n  _history__WEBPACK_IMPORTED_MODULE_2__[\"default\"].push('/');\n};\n\n//# sourceURL=webpack:///./frontend/src/actions/todos.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTodos\", function() { return getTodos; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTodo\", function() { return getTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodo\", function() { return addTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"deleteTodo\", function() { return deleteTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"editTodo\", function() { return editTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getSampleData\", function() { return getSampleData; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ \"./node_modules/redux-form/es/index.js\");\n/* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../history */ \"./frontend/src/history.js\");\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types */ \"./frontend/src/actions/types.js\");\n/* harmony import */ var lodash_number__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/number */ \"./node_modules/lodash/number.js\");\n/* harmony import */ var lodash_number__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_number__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n // GET TODOS\n\nconst getTodos = () => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/todos/'); // @todo\n\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"GET_TODOS\"],\n    payload: res.data\n  });\n}; // GET TODO\n\nconst getTodo = id => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(`/api/todos/${id}/`);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"GET_TODO\"],\n    payload: res.data\n  });\n}; // ADD TODO\n\nconst addTodo = formValues => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/todos/', { ...formValues\n  });\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"ADD_TODO\"],\n    payload: res.data\n  });\n  dispatch(Object(redux_form__WEBPACK_IMPORTED_MODULE_1__[\"reset\"])('todoForm')); // フォーム送信後、値をクリアする\n}; // DELETE TODO\n\nconst deleteTodo = id => async dispatch => {\n  await axios__WEBPACK_IMPORTED_MODULE_0___default.a.delete(`/api/todos/${id}/`);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"DELETE_TODO\"],\n    payload: id\n  });\n  _history__WEBPACK_IMPORTED_MODULE_2__[\"default\"].push('/');\n}; // EDIT TODO\n\nconst editTodo = (id, formValues) => async dispatch => {\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(`/api/todos/${id}/`, formValues);\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"EDIT_TODO\"],\n    payload: res.data\n  });\n  _history__WEBPACK_IMPORTED_MODULE_2__[\"default\"].push('/');\n}; // SAMPLE DISPATCH\n\nconst getSampleData = () => async dispatch => {\n  console.log('getSampleData');\n  console.log(Object(lodash_number__WEBPACK_IMPORTED_MODULE_4__[\"random\"])(1, 10000));\n  const res = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://jsonplaceholder.typicode.com/posts?_limit=5'); //написать урл для получения тестовых\n  // const res = await axios.get('/api/todos/16');\n\n  const new_todo = {\n    id: Object(lodash_number__WEBPACK_IMPORTED_MODULE_4__[\"random\"])(1, 10000),\n    task: \"Трям\",\n    created_at: \"04/25/2020 16:23:10\"\n  };\n  dispatch({\n    type: _types__WEBPACK_IMPORTED_MODULE_3__[\"TEST_ACTION\"],\n    payload: new_todo\n  });\n};\n\n//# sourceURL=webpack:///./frontend/src/actions/todos.js?");
 
 /***/ }),
 
@@ -102,11 +102,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************!*\
   !*** ./frontend/src/actions/types.js ***!
   \***************************************/
-/*! exports provided: GET_TODOS, GET_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO */
+/*! exports provided: GET_TODOS, GET_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO, TEST_ACTION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_TODOS\", function() { return GET_TODOS; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_TODO\", function() { return GET_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ADD_TODO\", function() { return ADD_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"DELETE_TODO\", function() { return DELETE_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"EDIT_TODO\", function() { return EDIT_TODO; });\nconst GET_TODOS = 'GET_TODOS';\nconst GET_TODO = 'GET_TODO';\nconst ADD_TODO = 'ADD_TODO';\nconst DELETE_TODO = 'DELETE_TODO';\nconst EDIT_TODO = 'EDIT_TODO';\n\n//# sourceURL=webpack:///./frontend/src/actions/types.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_TODOS\", function() { return GET_TODOS; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"GET_TODO\", function() { return GET_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ADD_TODO\", function() { return ADD_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"DELETE_TODO\", function() { return DELETE_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"EDIT_TODO\", function() { return EDIT_TODO; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TEST_ACTION\", function() { return TEST_ACTION; });\nconst GET_TODOS = 'GET_TODOS';\nconst GET_TODO = 'GET_TODO';\nconst ADD_TODO = 'ADD_TODO';\nconst DELETE_TODO = 'DELETE_TODO';\nconst EDIT_TODO = 'EDIT_TODO';\nconst TEST_ACTION = 'TEST_ACTION';\n\n//# sourceURL=webpack:///./frontend/src/actions/types.js?");
 
 /***/ }),
 
@@ -226,7 +226,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _actions_todos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todos */ \"./frontend/src/actions/todos.js\");\n\n\n\n\n\nclass TodoList extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  componentDidMount() {\n    // console.log('dsa')\n    this.props.getTodos(); // console.log(this.props.getTodos())\n  }\n\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"ui relaxed divided list\",\n      style: {\n        marginTop: '2rem'\n      }\n    }, this.props.todos.map(todo => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"item\",\n      key: todo.id\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"right floated content\"\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"Link\"], {\n      to: `/delete/${todo.id}`,\n      className: \"small ui negative basic button\"\n    }, \"Delete\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"i\", {\n      className: \"large calendar outline middle aligned icon\"\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"content\"\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"Link\"], {\n      to: `/edit/${todo.id}`,\n      className: \"header\"\n    }, todo.task), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"description\"\n    }, todo.created_at)))));\n  }\n\n}\n\nconst mapStateToProps = state => ({\n  todos: Object.values(state.todos)\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, {\n  getTodos: _actions_todos__WEBPACK_IMPORTED_MODULE_3__[\"getTodos\"],\n  deleteTodo: _actions_todos__WEBPACK_IMPORTED_MODULE_3__[\"deleteTodo\"]\n})(TodoList));\n\n//# sourceURL=webpack:///./frontend/src/components/todos/TodoList.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _actions_todos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todos */ \"./frontend/src/actions/todos.js\");\n\n\n\n\n\nclass TodoList extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  componentDidMount() {\n    this.props.getTodos();\n    this.props.getSampleData();\n  }\n\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"ui relaxed divided list\",\n      style: {\n        marginTop: '2rem'\n      }\n    }, this.props.todos.map(todo => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"item\",\n      key: todo.id\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"right floated content\"\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"Link\"], {\n      to: `/delete/${todo.id}`,\n      className: \"small ui negative basic button\"\n    }, \"Delete\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"i\", {\n      className: \"large calendar outline middle aligned icon\"\n    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"content\"\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"Link\"], {\n      to: `/edit/${todo.id}`,\n      className: \"header\"\n    }, todo.task), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      className: \"description\"\n    }, todo.created_at)))));\n  }\n\n}\n\nconst mapStateToProps = state => ({\n  todos: Object.values(state.todos)\n});\n\nconst mapDispatchToProps = {\n  getTodos: _actions_todos__WEBPACK_IMPORTED_MODULE_3__[\"getTodos\"],\n  deleteTodo: _actions_todos__WEBPACK_IMPORTED_MODULE_3__[\"deleteTodo\"],\n  getSampleData: _actions_todos__WEBPACK_IMPORTED_MODULE_3__[\"getSampleData\"]\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, mapDispatchToProps)(TodoList));\n\n//# sourceURL=webpack:///./frontend/src/components/todos/TodoList.js?");
 
 /***/ }),
 
@@ -274,7 +274,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/types */ \"./frontend/src/actions/types.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = {}, action) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"GET_TODOS\"]:\n      return { ...state,\n        ...lodash__WEBPACK_IMPORTED_MODULE_0___default.a.mapKeys(action.payload, 'id')\n      };\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"GET_TODO\"]:\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"ADD_TODO\"]:\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"EDIT_TODO\"]:\n      return { ...state,\n        [action.payload.id]: action.payload\n      };\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"DELETE_TODO\"]:\n      return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.omit(state, action.payload);\n\n    default:\n      return state;\n  }\n});\n\n//# sourceURL=webpack:///./frontend/src/reducers/todos.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/types */ \"./frontend/src/actions/types.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = {}, action) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"GET_TODOS\"]:\n      return { ...state,\n        ...lodash__WEBPACK_IMPORTED_MODULE_0___default.a.mapKeys(action.payload, 'id')\n      };\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"GET_TODO\"]:\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"ADD_TODO\"]:\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"EDIT_TODO\"]:\n      return { ...state,\n        [action.payload.id]: action.payload\n      };\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"DELETE_TODO\"]:\n      return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.omit(state, action.payload);\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_1__[\"TEST_ACTION\"]:\n      console.log({ ...state,\n        [action.payload.id]: action.payload\n      });\n      return { ...state,\n        [action.payload.id]: action.payload\n      };\n\n    default:\n      return state;\n  }\n});\n\n//# sourceURL=webpack:///./frontend/src/reducers/todos.js?");
 
 /***/ }),
 
@@ -2552,6 +2552,17 @@ eval("var defineProperty = __webpack_require__(/*! ./_defineProperty */ \"./node
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_baseClamp.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_baseClamp.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/**\n * The base implementation of `_.clamp` which doesn't coerce arguments.\n *\n * @private\n * @param {number} number The number to clamp.\n * @param {number} [lower] The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n */\nfunction baseClamp(number, lower, upper) {\n  if (number === number) {\n    if (upper !== undefined) {\n      number = number <= upper ? number : upper;\n    }\n    if (lower !== undefined) {\n      number = number >= lower ? number : lower;\n    }\n  }\n  return number;\n}\n\nmodule.exports = baseClamp;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_baseClamp.js?");
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_baseCreate.js":
 /*!********************************************!*\
   !*** ./node_modules/lodash/_baseCreate.js ***!
@@ -2626,6 +2637,17 @@ eval("var Symbol = __webpack_require__(/*! ./_Symbol */ \"./node_modules/lodash/
 /***/ (function(module, exports) {
 
 eval("/**\n * The base implementation of `_.hasIn` without support for deep paths.\n *\n * @private\n * @param {Object} [object] The object to query.\n * @param {Array|string} key The key to check.\n * @returns {boolean} Returns `true` if `key` exists, else `false`.\n */\nfunction baseHasIn(object, key) {\n  return object != null && key in Object(object);\n}\n\nmodule.exports = baseHasIn;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_baseHasIn.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseInRange.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/_baseInRange.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeMax = Math.max,\n    nativeMin = Math.min;\n\n/**\n * The base implementation of `_.inRange` which doesn't coerce arguments.\n *\n * @private\n * @param {number} number The number to check.\n * @param {number} start The start of the range.\n * @param {number} end The end of the range.\n * @returns {boolean} Returns `true` if `number` is in the range, else `false`.\n */\nfunction baseInRange(number, start, end) {\n  return number >= nativeMin(start, end) && number < nativeMax(start, end);\n}\n\nmodule.exports = baseInRange;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_baseInRange.js?");
 
 /***/ }),
 
@@ -2791,6 +2813,17 @@ eval("/**\n * The base implementation of `_.property` without support for deep p
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var baseGet = __webpack_require__(/*! ./_baseGet */ \"./node_modules/lodash/_baseGet.js\");\n\n/**\n * A specialized version of `baseProperty` which supports deep paths.\n *\n * @private\n * @param {Array|string} path The path of the property to get.\n * @returns {Function} Returns the new accessor function.\n */\nfunction basePropertyDeep(path) {\n  return function(object) {\n    return baseGet(object, path);\n  };\n}\n\nmodule.exports = basePropertyDeep;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_basePropertyDeep.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseRandom.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_baseRandom.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeFloor = Math.floor,\n    nativeRandom = Math.random;\n\n/**\n * The base implementation of `_.random` without support for returning\n * floating-point numbers.\n *\n * @private\n * @param {number} lower The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the random number.\n */\nfunction baseRandom(lower, upper) {\n  return lower + nativeFloor(nativeRandom() * (upper - lower + 1));\n}\n\nmodule.exports = baseRandom;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_baseRandom.js?");
 
 /***/ }),
 
@@ -3652,6 +3685,17 @@ eval("/** Used for built-in method references. */\nvar funcProto = Function.prot
 
 /***/ }),
 
+/***/ "./node_modules/lodash/clamp.js":
+/*!**************************************!*\
+  !*** ./node_modules/lodash/clamp.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var baseClamp = __webpack_require__(/*! ./_baseClamp */ \"./node_modules/lodash/_baseClamp.js\"),\n    toNumber = __webpack_require__(/*! ./toNumber */ \"./node_modules/lodash/toNumber.js\");\n\n/**\n * Clamps `number` within the inclusive `lower` and `upper` bounds.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Number\n * @param {number} number The number to clamp.\n * @param {number} [lower] The lower bound.\n * @param {number} upper The upper bound.\n * @returns {number} Returns the clamped number.\n * @example\n *\n * _.clamp(-10, -5, 5);\n * // => -5\n *\n * _.clamp(10, -5, 5);\n * // => 5\n */\nfunction clamp(number, lower, upper) {\n  if (upper === undefined) {\n    upper = lower;\n    lower = undefined;\n  }\n  if (upper !== undefined) {\n    upper = toNumber(upper);\n    upper = upper === upper ? upper : 0;\n  }\n  if (lower !== undefined) {\n    lower = toNumber(lower);\n    lower = lower === lower ? lower : 0;\n  }\n  return baseClamp(toNumber(number), lower, upper);\n}\n\nmodule.exports = clamp;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/clamp.js?");
+
+/***/ }),
+
 /***/ "./node_modules/lodash/constant.js":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/constant.js ***!
@@ -3704,6 +3748,17 @@ eval("var baseHasIn = __webpack_require__(/*! ./_baseHasIn */ \"./node_modules/l
 /***/ (function(module, exports) {
 
 eval("/**\n * This method returns the first argument it receives.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Util\n * @param {*} value Any value.\n * @returns {*} Returns `value`.\n * @example\n *\n * var object = { 'a': 1 };\n *\n * console.log(_.identity(object) === object);\n * // => true\n */\nfunction identity(value) {\n  return value;\n}\n\nmodule.exports = identity;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/identity.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/inRange.js":
+/*!****************************************!*\
+  !*** ./node_modules/lodash/inRange.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var baseInRange = __webpack_require__(/*! ./_baseInRange */ \"./node_modules/lodash/_baseInRange.js\"),\n    toFinite = __webpack_require__(/*! ./toFinite */ \"./node_modules/lodash/toFinite.js\"),\n    toNumber = __webpack_require__(/*! ./toNumber */ \"./node_modules/lodash/toNumber.js\");\n\n/**\n * Checks if `n` is between `start` and up to, but not including, `end`. If\n * `end` is not specified, it's set to `start` with `start` then set to `0`.\n * If `start` is greater than `end` the params are swapped to support\n * negative ranges.\n *\n * @static\n * @memberOf _\n * @since 3.3.0\n * @category Number\n * @param {number} number The number to check.\n * @param {number} [start=0] The start of the range.\n * @param {number} end The end of the range.\n * @returns {boolean} Returns `true` if `number` is in the range, else `false`.\n * @see _.range, _.rangeRight\n * @example\n *\n * _.inRange(3, 2, 4);\n * // => true\n *\n * _.inRange(4, 8);\n * // => true\n *\n * _.inRange(4, 2);\n * // => false\n *\n * _.inRange(2, 2);\n * // => false\n *\n * _.inRange(1.2, 2);\n * // => true\n *\n * _.inRange(5.2, 4);\n * // => false\n *\n * _.inRange(-3, -2, -6);\n * // => true\n */\nfunction inRange(number, start, end) {\n  start = toFinite(start);\n  if (end === undefined) {\n    end = start;\n    start = 0;\n  } else {\n    end = toFinite(end);\n  }\n  number = toNumber(number);\n  return baseInRange(number, start, end);\n}\n\nmodule.exports = inRange;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/inRange.js?");
 
 /***/ }),
 
@@ -3949,6 +4004,17 @@ eval("var baseMerge = __webpack_require__(/*! ./_baseMerge */ \"./node_modules/l
 
 /***/ }),
 
+/***/ "./node_modules/lodash/number.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/number.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = {\n  'clamp': __webpack_require__(/*! ./clamp */ \"./node_modules/lodash/clamp.js\"),\n  'inRange': __webpack_require__(/*! ./inRange */ \"./node_modules/lodash/inRange.js\"),\n  'random': __webpack_require__(/*! ./random */ \"./node_modules/lodash/random.js\")\n};\n\n\n//# sourceURL=webpack:///./node_modules/lodash/number.js?");
+
+/***/ }),
+
 /***/ "./node_modules/lodash/property.js":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/property.js ***!
@@ -3957,6 +4023,17 @@ eval("var baseMerge = __webpack_require__(/*! ./_baseMerge */ \"./node_modules/l
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var baseProperty = __webpack_require__(/*! ./_baseProperty */ \"./node_modules/lodash/_baseProperty.js\"),\n    basePropertyDeep = __webpack_require__(/*! ./_basePropertyDeep */ \"./node_modules/lodash/_basePropertyDeep.js\"),\n    isKey = __webpack_require__(/*! ./_isKey */ \"./node_modules/lodash/_isKey.js\"),\n    toKey = __webpack_require__(/*! ./_toKey */ \"./node_modules/lodash/_toKey.js\");\n\n/**\n * Creates a function that returns the value at `path` of a given object.\n *\n * @static\n * @memberOf _\n * @since 2.4.0\n * @category Util\n * @param {Array|string} path The path of the property to get.\n * @returns {Function} Returns the new accessor function.\n * @example\n *\n * var objects = [\n *   { 'a': { 'b': 2 } },\n *   { 'a': { 'b': 1 } }\n * ];\n *\n * _.map(objects, _.property('a.b'));\n * // => [2, 1]\n *\n * _.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');\n * // => [1, 2]\n */\nfunction property(path) {\n  return isKey(path) ? baseProperty(toKey(path)) : basePropertyDeep(path);\n}\n\nmodule.exports = property;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/property.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/random.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/random.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var baseRandom = __webpack_require__(/*! ./_baseRandom */ \"./node_modules/lodash/_baseRandom.js\"),\n    isIterateeCall = __webpack_require__(/*! ./_isIterateeCall */ \"./node_modules/lodash/_isIterateeCall.js\"),\n    toFinite = __webpack_require__(/*! ./toFinite */ \"./node_modules/lodash/toFinite.js\");\n\n/** Built-in method references without a dependency on `root`. */\nvar freeParseFloat = parseFloat;\n\n/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeMin = Math.min,\n    nativeRandom = Math.random;\n\n/**\n * Produces a random number between the inclusive `lower` and `upper` bounds.\n * If only one argument is provided a number between `0` and the given number\n * is returned. If `floating` is `true`, or either `lower` or `upper` are\n * floats, a floating-point number is returned instead of an integer.\n *\n * **Note:** JavaScript follows the IEEE-754 standard for resolving\n * floating-point values which can produce unexpected results.\n *\n * @static\n * @memberOf _\n * @since 0.7.0\n * @category Number\n * @param {number} [lower=0] The lower bound.\n * @param {number} [upper=1] The upper bound.\n * @param {boolean} [floating] Specify returning a floating-point number.\n * @returns {number} Returns the random number.\n * @example\n *\n * _.random(0, 5);\n * // => an integer between 0 and 5\n *\n * _.random(5);\n * // => also an integer between 0 and 5\n *\n * _.random(5, true);\n * // => a floating-point number between 0 and 5\n *\n * _.random(1.2, 5.2);\n * // => a floating-point number between 1.2 and 5.2\n */\nfunction random(lower, upper, floating) {\n  if (floating && typeof floating != 'boolean' && isIterateeCall(lower, upper, floating)) {\n    upper = floating = undefined;\n  }\n  if (floating === undefined) {\n    if (typeof upper == 'boolean') {\n      floating = upper;\n      upper = undefined;\n    }\n    else if (typeof lower == 'boolean') {\n      floating = lower;\n      lower = undefined;\n    }\n  }\n  if (lower === undefined && upper === undefined) {\n    lower = 0;\n    upper = 1;\n  }\n  else {\n    lower = toFinite(lower);\n    if (upper === undefined) {\n      upper = lower;\n      lower = 0;\n    } else {\n      upper = toFinite(upper);\n    }\n  }\n  if (lower > upper) {\n    var temp = lower;\n    lower = upper;\n    upper = temp;\n  }\n  if (floating || lower % 1 || upper % 1) {\n    var rand = nativeRandom();\n    return nativeMin(lower + (rand * (upper - lower + freeParseFloat('1e-' + ((rand + '').length - 1)))), upper);\n  }\n  return baseRandom(lower, upper);\n}\n\nmodule.exports = random;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/random.js?");
 
 /***/ }),
 
@@ -3979,6 +4056,28 @@ eval("/**\n * This method returns a new empty array.\n *\n * @static\n * @member
 /***/ (function(module, exports) {
 
 eval("/**\n * This method returns `false`.\n *\n * @static\n * @memberOf _\n * @since 4.13.0\n * @category Util\n * @returns {boolean} Returns `false`.\n * @example\n *\n * _.times(2, _.stubFalse);\n * // => [false, false]\n */\nfunction stubFalse() {\n  return false;\n}\n\nmodule.exports = stubFalse;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/stubFalse.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/toFinite.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/toFinite.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toNumber = __webpack_require__(/*! ./toNumber */ \"./node_modules/lodash/toNumber.js\");\n\n/** Used as references for various `Number` constants. */\nvar INFINITY = 1 / 0,\n    MAX_INTEGER = 1.7976931348623157e+308;\n\n/**\n * Converts `value` to a finite number.\n *\n * @static\n * @memberOf _\n * @since 4.12.0\n * @category Lang\n * @param {*} value The value to convert.\n * @returns {number} Returns the converted number.\n * @example\n *\n * _.toFinite(3.2);\n * // => 3.2\n *\n * _.toFinite(Number.MIN_VALUE);\n * // => 5e-324\n *\n * _.toFinite(Infinity);\n * // => 1.7976931348623157e+308\n *\n * _.toFinite('3.2');\n * // => 3.2\n */\nfunction toFinite(value) {\n  if (!value) {\n    return value === 0 ? value : 0;\n  }\n  value = toNumber(value);\n  if (value === INFINITY || value === -INFINITY) {\n    var sign = (value < 0 ? -1 : 1);\n    return sign * MAX_INTEGER;\n  }\n  return value === value ? value : 0;\n}\n\nmodule.exports = toFinite;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/toFinite.js?");
+
+/***/ }),
+
+/***/ "./node_modules/lodash/toNumber.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/toNumber.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var isObject = __webpack_require__(/*! ./isObject */ \"./node_modules/lodash/isObject.js\"),\n    isSymbol = __webpack_require__(/*! ./isSymbol */ \"./node_modules/lodash/isSymbol.js\");\n\n/** Used as references for various `Number` constants. */\nvar NAN = 0 / 0;\n\n/** Used to match leading and trailing whitespace. */\nvar reTrim = /^\\s+|\\s+$/g;\n\n/** Used to detect bad signed hexadecimal string values. */\nvar reIsBadHex = /^[-+]0x[0-9a-f]+$/i;\n\n/** Used to detect binary string values. */\nvar reIsBinary = /^0b[01]+$/i;\n\n/** Used to detect octal string values. */\nvar reIsOctal = /^0o[0-7]+$/i;\n\n/** Built-in method references without a dependency on `root`. */\nvar freeParseInt = parseInt;\n\n/**\n * Converts `value` to a number.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to process.\n * @returns {number} Returns the number.\n * @example\n *\n * _.toNumber(3.2);\n * // => 3.2\n *\n * _.toNumber(Number.MIN_VALUE);\n * // => 5e-324\n *\n * _.toNumber(Infinity);\n * // => Infinity\n *\n * _.toNumber('3.2');\n * // => 3.2\n */\nfunction toNumber(value) {\n  if (typeof value == 'number') {\n    return value;\n  }\n  if (isSymbol(value)) {\n    return NAN;\n  }\n  if (isObject(value)) {\n    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;\n    value = isObject(other) ? (other + '') : other;\n  }\n  if (typeof value != 'string') {\n    return value === 0 ? value : +value;\n  }\n  value = value.replace(reTrim, '');\n  var isBinary = reIsBinary.test(value);\n  return (isBinary || reIsOctal.test(value))\n    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)\n    : (reIsBadHex.test(value) ? NAN : +value);\n}\n\nmodule.exports = toNumber;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/toNumber.js?");
 
 /***/ }),
 

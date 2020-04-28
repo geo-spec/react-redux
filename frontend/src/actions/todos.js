@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { reset } from 'redux-form';
 import history from '../history';
-import { GET_TODOS, GET_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO } from './types';
+import {GET_TODOS, GET_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO, TEST_ACTION} from './types';
+import {random} from "lodash/number";
 
 // GET TODOS
 export const getTodos = () => async dispatch => {
@@ -50,4 +51,22 @@ export const editTodo = (id, formValues) => async dispatch => {
     payload: res.data
   });
   history.push('/');
+};
+
+// SAMPLE DISPATCH
+export const getSampleData = () => async dispatch => {
+  console.log('getSampleData')
+  console.log(random(1, 10000));
+  const res = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5'); //написать урл для получения тестовых
+ // const res = await axios.get('/api/todos/16');
+
+  const new_todo = {
+    id:random(1, 10000),
+    task:"Трям",
+    created_at:"04/25/2020 16:23:10"
+  }
+  dispatch({
+    type: TEST_ACTION,
+    payload: new_todo
+  });
 };

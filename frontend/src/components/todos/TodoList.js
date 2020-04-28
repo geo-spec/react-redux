@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getTodos, deleteTodo } from '../../actions/todos';
+import {getTodos, deleteTodo, getSampleData} from '../../actions/todos';
 
 
 class TodoList extends Component {
   componentDidMount() {
-    // console.log('dsa')
     this.props.getTodos();
-    // console.log(this.props.getTodos())
+    this.props.getSampleData()
   }
 
   render() {
@@ -43,7 +42,10 @@ const mapStateToProps = state => ({
   todos: Object.values(state.todos)
 });
 
+const mapDispatchToProps = {
+  getTodos, deleteTodo, getSampleData
+}
+
 export default connect(
-  mapStateToProps,
-  { getTodos, deleteTodo }
+  mapStateToProps, mapDispatchToProps
 )(TodoList);
