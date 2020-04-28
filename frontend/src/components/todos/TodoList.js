@@ -14,13 +14,9 @@ class TodoList extends Component {
   render() {
     return (
       <div className='ui relaxed divided list' style={{ marginTop: '2rem' }}>
-          <Button variant="contained" color="primary">
-      1231321 World 
-    </Button>
         {this.props.todos.map(todo => (
 
           <div className='item' key={todo.id}>
-          <Button variant="contained" color="primary"> {todo.id} 1231321 World </Button>
             <div className='right floated content'>
               <Link
                 to={`/delete/${todo.id}`}
