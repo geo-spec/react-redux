@@ -10,6 +10,7 @@ export default (state = {}, action) => {
       console.log(action)
       return {
         ...state,
+        ...action.payload
       };
     default:
       return state;
