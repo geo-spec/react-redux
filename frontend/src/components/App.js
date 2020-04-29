@@ -36,9 +36,9 @@ class App extends Component {
             <Route exact path='/edit/:id' component={TodoEdit} />
           </Switch>
         </Router>
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
       </Provider>
     );
   }

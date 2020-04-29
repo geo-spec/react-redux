@@ -55,8 +55,6 @@ export const editTodo = (id, formValues) => async dispatch => {
 
 // SAMPLE DISPATCH
 export const getSampleData = () => async dispatch => {
-  console.log('getSampleData')
-  console.log(random(1, 10000));
   const res = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5'); //написать урл для получения тестовых
  // const res = await axios.get('/api/todos/16');
 
