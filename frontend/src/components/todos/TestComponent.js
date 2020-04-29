@@ -4,8 +4,7 @@ import {connect} from "react-redux";
 
 
 import MyButton from "./MyButton";
-import Button from "@material-ui/core/Button";
-import { ListItem, ListItemText } from '@material-ui/core';
+import { ListItem, ListItemText, TextField, Button } from '@material-ui/core';
 
 
 
@@ -30,7 +29,7 @@ class TestComponent extends Component {
         <br/>
         <Button variant="contained" color="primary" onClick={this.props.loadList}> Загрузить элементы</Button>
         <br/>
-        TestComponent
+        <TextField id="standard-basic" label="Standard" />
       </div>
     )
   }
