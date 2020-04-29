@@ -11,8 +11,6 @@ class Dashboard extends Component {
         <TodoCreate />
         <TodoList />
         <TestComponent />
-        <MyButton />
-        
       </div>
     );
   }
