@@ -11,10 +11,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_BUTTON_TEXT:
       console.log(action)
-      console.log(state)
+      console.log(action.payload)
       return {
         ...state,
-        ...{"buttonText" : "newButtonTest"}
+        ...{"buttonText" : action.payload.title }
 
       };
     default:
