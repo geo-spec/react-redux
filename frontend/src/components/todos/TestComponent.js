@@ -4,15 +4,20 @@ import {connect} from "react-redux";
 
 
 import MyButton from "./MyButton";
+import Button from "@material-ui/core/Button";
 
 class TestComponent extends Component {
   componentDidMount() {
-    this.props.getButtonData()
+    console.log(this.props)
+    //this.props.getButtonData()
   }
 
   render() {
     return (
-      <div>TestComponent</div>
+      <div>
+        <Button variant="contained" color="primary" onClick={this.props.getButtonData}> {this.props.buttonText} </Button>
+        TestComponent
+      </div>
     )
   }
 }
@@ -24,7 +29,15 @@ class TestComponent extends Component {
 // const mapStateToProps = state => ({
 //   todos: Object.values(state.todos)
 // });
-const mapStateToProps = null
+
+const mapStateToProps = state => {
+  console.log('state')
+  console.log(state.button_data_reducer)
+  return {
+    buttonText: state.button_data_reducer.buttonText
+  }
+}
+//const mapStateToProps = null
 
 const mapDispatchToProps = {
   getButtonData

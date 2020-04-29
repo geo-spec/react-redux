@@ -3,14 +3,19 @@ import {
 } from '../actions/types';
 import _ from "lodash";
 
+const initialState = {
+    'buttonText' : 'initialStateButtonText'
+}
 
-export default (state = {}, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_BUTTON_TEXT:
       console.log(action)
+      console.log(state)
       return {
         ...state,
-        ...action.payload
+        ...{"buttonText" : "newButtonTest"}
+
       };
     default:
       return state;
